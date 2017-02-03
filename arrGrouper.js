@@ -55,9 +55,7 @@ module.exports = function (RED) {
                             return newGroup;
                         }
                     });
-
-                    node.log(JSON.stringify(resultMessageArray));
-
+                    
                     node.send(resultMessageArray);
                 }
             } else {

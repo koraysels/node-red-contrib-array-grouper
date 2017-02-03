@@ -45,25 +45,11 @@
 
 </script>
 
-<script type="text/x-red" data-help-name="splitter">
-    <p>A simple node to split an payload-array into seperate messages</p>
-    <p>When a message arrives, the configured variable will be iterated over</p>
+<script type="text/x-red" data-help-name="arrGrouper">
+    <p>A simple node to split an payload-array into seperate messages grouped in chunks</p>
+    <p>When a message arrives, the configured variable will be iterated over and put in chunks over multiple outputs</p>
     <p>Note: the <i>old payload</i> will be stored in <b>msg.payload_unsplit</b></p>
-    <h4>Loop control features</h4>
-    <dl>
-      <dt><i>{number}</i> <b>msg.$index</b></dt>
-      <dd>current loop index</dd>
-      <dt><i>{boolean}</i> <b>msg.$first</b></dt>
-      <dd>true if loop element is first</dd>
-      <dt><i>{boolean}</i> <b>msg.$last</b></dt>
-      <dd>true if loop element is last</dd>
-    </dl>
-
-
-
-
-
-</script>
+   </script>
 
 <script type="text/javascript">
     RED.nodes.registerType('ArrGrouper', {
