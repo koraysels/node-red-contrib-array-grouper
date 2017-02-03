@@ -1,36 +1,18 @@
-node-red-node-splitter
-====================
+node-red-array-grouper
+======================
 
-This node iterates over an array.
-
-# The idea
-
-In enterprise integration patterns there are many names for this: a splitter, sequencer, iterator or chunkifier.
-
-<img alt="" src="Sequencer.gif"/>
-
-In the end 'splitter' is the best name imho.
-More info [here](http://www.enterpriseintegrationpatterns.com/Sequencer.html)
-
-# Why a node?
-
-Well..look at this image, and then imagine using 10 loops in a similar way:
-
-<img alt="" src="nodeloop.jpg"/>
-
-Got the point?
-With visual progarmming the [Deutsch Limit](http://en.wikipedia.org/wiki/Deutsch_limit) seems to lure around every corner. Better to make a node for that.
+This node iterates over an array and groups them in chunks over multiple outputs
 
 # Installation
+install usin gthe noder-red pallete manager or 
 
 Run: 
 
-    npm install node-red-contrib-splitter
+    npm i -g node-red-contrib-array-grouper 
 
 # Author
 
-Leon van Kammen, http://coderofsalvation.github.io / http://github.com/coderofsalvation
-
+Koray Sels
 # License 
 
 BSD
