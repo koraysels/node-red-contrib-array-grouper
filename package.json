@@ -1,0 +1,32 @@
+{
+    "name": "node-red-contrib-splitter",
+    "version": "0.0.17",
+    "description": "A Node-RED node to split arrays into seperate messages, making it easy to loop over.",
+    "dependencies": {
+        "lodash": "^4.17.4"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/coderofsalvation/node-red-contrib-splitter"
+    },
+    "license": "BSD",
+    "keywords": [
+        "node-red",
+        "grouper",
+        "iteration",
+        "arrays",
+        "loop",
+        "chunk",
+        "lodash"
+    ],
+    "node-red": {
+        "nodes": {
+            "arrGrouper": "arrGrouper.js"
+        }
+    },
+    "author": {
+        "name": "Koray Sels",
+        "email": "koray@weareundefined.be",
+        "url": "http://weareundefined.be"
+    }
+}
