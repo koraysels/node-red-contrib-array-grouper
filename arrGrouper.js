@@ -59,8 +59,6 @@ module.exports = function (RED) {
                         }
                     });
 
-                    node.log(padding);
-
                     if (padding) {
                         var temp = RED.util.cloneMessage(msg);
                         temp.payload = undefined;
