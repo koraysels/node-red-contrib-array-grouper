@@ -34,14 +34,14 @@
     <div class="form-row" style="padding-top:10px;">
         Iterate over in groups of <input style="width:60px;" id="node-input-groups"/>
     </div>
-      <div class="form-row">
+    <div class="form-row">
         <label for="node-input-outputs"><i class="fa fa-random"></i> Outputs</label>
         <input id="node-input-outputs" style="width: 60px;" value="1">
     </div>
-
-
-
-
+    <div class="form-row">
+    <label for="node-input-padding">Output Padding with empty messages?</label>
+    <input type="checkbox" value="1" id="node-input-padding" placeholder="Apply padding Array with empty values if not enough inputs are given over all outputs ?" checked>
+</div>
 
 </script>
 
@@ -49,7 +49,10 @@
     <p>A simple node to split an payload-array into seperate messages grouped in chunks</p>
     <p>When a message arrives, the configured variable will be iterated over and put in chunks over multiple outputs</p>
     <p>Note: the <i>old payload</i> will be stored in <b>msg.payload_unsplit</b></p>
-   </script>
+    <hr>
+  <p>If you want all the putputs to have a value even if the input array is not long enough, you can use <code>Output padding</code> to send messages with an empty payload over these outputs.</p>
+
+</script>
 
 <script type="text/javascript">
     RED.nodes.registerType('ArrGrouper', {
@@ -58,6 +61,7 @@
         defaults: {
             name: {value: ""},
             outputs: {value: 1, required: true, validate: RED.validators.number()},
+            padding: {value: "", required: false},
             groups: {value: "", required: true, validate: RED.validators.number()},
             property: {value: "payload", required: true}
         },

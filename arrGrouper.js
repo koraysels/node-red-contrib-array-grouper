@@ -36,13 +36,16 @@ module.exports = function (RED) {
         var propertyParts = config.property.split("."),
             node = this;
 
+        var outputs = config.outputs;
         var groupSize = config.groups;
+        var padding = config.padding;
 
         this.on('input', function (msg) {
             if (typeof propertyParts == "object" && propertyParts != undefined) {
                 var prop = propertyParts.reduce(function (obj, i) {
                     return obj[i]
                 }, msg);
+
                 msg.payload_unsplit = msg.payload;
 
                 if (prop != undefined && prop.length) {
@@ -55,8 +58,18 @@ module.exports = function (RED) {
                             return newGroup;
                         }
                     });
-                    
-                    node.send(resultMessageArray);
+
+                    node.log(padding);
+
+                    if (padding) {
+                        var temp = RED.util.cloneMessage(msg);
+                        temp.payload = undefined;
+                        var result = resultMessageArray.concat(new Array(outputs - resultMessageArray.length).fill(temp));
+                        node.send(result);
+                    } else {
+                        node.send(resultMessageArray);
+                    }
+
                 }
             } else {
                 console.error("node splitter did not receive an array");
@@ -65,6 +78,4 @@ module.exports = function (RED) {
     }
 
     RED.nodes.registerType("ArrGrouper", ArrGrouperNode);
-}
-
-// [{payload: [0, 1, 2]}, {payload: [0, 1, 2]}, {payload: [0, 1, 2]}]
+};
