@@ -1,6 +1,6 @@
 {
     "name": "node-red-contrib-array-grouper",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "A Node-RED node to group an array in chunks",
     "dependencies": {
         "lodash": "^4.17.4"
